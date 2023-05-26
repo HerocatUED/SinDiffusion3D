@@ -7,7 +7,7 @@ diffusion model for single 3D mesh
 - ***oct-tree optimize*** TODO
 
 #  Quick Start
-1. install requirements ```pip install -r requirements.txt```
+1. install pytorch and other requirements ```pip install -r requirements.txt```
 2. put xxx.obj file into 'dataset' folder
 3. run command ```python main.py --shape_name=xxx```
 4. output file can be found in 'output' folder
