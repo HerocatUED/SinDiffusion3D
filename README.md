@@ -2,7 +2,7 @@
 diffusion model for single 3D mesh
 
 # Progress
-- ***triplane encoder-decoder*** Done (based on [https://github.com/JRyanShue/NFD/tree/main/nfd/triplane_decoder])
+- ***triplane encoder-decoder*** Done (based on [NFD-tripane_decoder](https://github.com/JRyanShue/NFD/tree/main/nfd/triplane_decoder))
 - ***diffusion model*** TODO
 - ***oct-tree optimize*** TODO
 
