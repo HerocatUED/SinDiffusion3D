@@ -7,6 +7,6 @@ diffusion model for single 3D mesh
 - ***oct-tree optimize*** TODO
 
 #  Quick Start
-1. put .obj file into 'dataset' folder
-2. run command ```bash python main.py --shape_name=StoneWall```
+1. put xxx.obj file into 'dataset' folder
+2. run command ```bash python main.py --shape_name=xxx```
 3. output file can be found in 'output' folder
