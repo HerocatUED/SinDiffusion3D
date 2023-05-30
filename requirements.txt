@@ -1,0 +1,4 @@
+numpy
+trimesh
+pymcubes
+tqdm
