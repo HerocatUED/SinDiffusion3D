@@ -1,9 +1,9 @@
 import argparse
 import numpy as np
 import mcubes
+import torch
 from tqdm import tqdm 
-from axisnetworks import *
-from dataset_3d import *
+from axisnetworks import Triplane
 
 
 def create_obj(model, obj_idx, res=128, max_batch_size=50000, output_path='output.obj', device = torch.device('cuda')):
@@ -15,7 +15,7 @@ def create_obj(model, obj_idx, res=128, max_batch_size=50000, output_path='outpu
     yy = torch.linspace(-1, 1, res)
     zz = torch.linspace(-1, 1, res)
 
-    (x_coords, y_coords, z_coords) = torch.meshgrid([xx, yy, zz])
+    (x_coords, y_coords, z_coords) = torch.meshgrid([xx, yy, zz], indexing='ij')
     coords = torch.cat([x_coords.unsqueeze(-1), y_coords.unsqueeze(-1), z_coords.unsqueeze(-1)], -1)
 
     coords = coords.reshape(res*res*res, 3)
@@ -33,16 +33,16 @@ def create_obj(model, obj_idx, res=128, max_batch_size=50000, output_path='outpu
     
     # smoothed_prediction =  mcubes.smooth(prediction)
     smoothed_prediction =  prediction
-    vertices, triangles = mcubes.marching_cubes(smoothed_prediction, 0)
+    vertices, triangles = mcubes.marching_cubes(smoothed_prediction, 0.5)
     mcubes.export_obj(vertices, triangles, output_path)
 
 
 def visualize(input, output, model_path, res, device = torch.device('cuda')):
 
-    model = MultiTriplane(1, input_dim=3, output_dim=1).to(device)
+    model = Triplane(1, input_dim=3, output_dim=1, device=device).to(device)
     model.net.load_state_dict(torch.load(model_path))
     model.eval()
-    triplanes = np.load(input).reshape(3, 32, 128, 128)
+    triplanes = np.load(input).reshape(3, 16, 128, 128)
 
     with torch.no_grad():
         for i in range(3):

@@ -3,9 +3,10 @@ import numpy as np
 
 
 class OccupancyDataset(torch.utils.data.Dataset):
-    def __init__(self, dataset_path):
+    def __init__(self, dataset_path, device = "cuda"):
+        self.device = device
         self.data = np.load(dataset_path)
-        self.data = torch.tensor(self.data.reshape(50, -1, 4)).cuda()
+        self.data = torch.tensor(self.data.reshape(50, -1, 4)).to(self.device)
     
     def __len__(self):
         return self.data.shape[0]
