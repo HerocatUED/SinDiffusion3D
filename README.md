@@ -3,7 +3,7 @@ diffusion model for single 3D mesh
 
 # Progress
 - ***triplane encoder-decoder*** Done (based on [NFD-tripane_decoder](https://github.com/JRyanShue/NFD/tree/main/nfd/triplane_decoder))
-- ***diffusion model*** TODO
+- ***diffusion model*** FIXME
 - ***oct-tree optimize*** TODO
 
 #  Quick Start
@@ -12,4 +12,5 @@ diffusion model for single 3D mesh
 3. run command ```python main.py --shape_name=xxx``` 
 
    Note: ```shape_name``` should be the same as input mesh file. If the input mesh is StoneWall.obj, then ```--shape_name=StoneWall``` 
-5. output file can be found in 'output' folder
+4. output file can be found in 'output' folder
+5. try diffuse in diffusion folder, run ```python diffuse.py```
