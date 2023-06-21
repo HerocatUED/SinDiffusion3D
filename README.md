@@ -13,4 +13,4 @@ diffusion model for single 3D mesh
 
    Note: ```shape_name``` should be the same as input mesh file. If the input mesh is StoneWall.obj, then ```--shape_name=StoneWall``` 
 4. output file can be found in 'output' folder
-5. try diffuse in diffusion folder, run ```python diffuse.py``` after put the triplane file into diffusion/data folder.
+5. try diffuse in diffusion folder, run ```python diffuse.py``` after put the triplane file into diffusion/data folder, and run visualize_diffused_shape.py to visualize.
